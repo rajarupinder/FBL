@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Admin_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-styleTable {
+            width: 100%;
+            font-family: Arial;
+            font-size: small;
+        }
+
+        .auto-styleCell {
+            font-size: 9pt;
+        }
+
+        .auto-style4 {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server" align="centre">
+        <table class="auto-styleTable" style="text-align: center">
+            <tr>
+                <td class="auto-styleCell">
+                    <h5 class="auto-style4">
+                        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="Default.aspx" CausesValidation="False" CssClass="auto-styleCell">Home</asp:LinkButton>
+                    </h5>
+                </td>
+                <td class="auto-styleCell">
+                    <h5 class="auto-style4">
+                        <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="Question.aspx" CausesValidation="False" CssClass="auto-styleCell">Manage Questions</asp:LinkButton>
+                    </h5>
+                </td>
+                <td class="auto-styleCell">
+                    <h5 class="auto-style4">
+                        <asp:LinkButton ID="LinkButton4" runat="server" PostBackUrl="DailyAnswer.aspx" CausesValidation="False" CssClass="auto-styleCell">Daily Answers</asp:LinkButton>
+                    </h5>
+                </td>
+                <td class="auto-styleCell">
+                    <h5 class="auto-style4">
+                        <asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="User.aspx" CausesValidation="False" CssClass="auto-styleCell">Manage Users</asp:LinkButton>
+                    </h5>
+                </td>
+                <td class="auto-styleCell">
+                    <h5 class="auto-style4">
+                        <asp:LinkButton ID="LinkButton5" runat="server" PostBackUrl="Feedback.aspx" CausesValidation="False" CssClass="auto-styleCell">Feedback</asp:LinkButton>
+                    </h5>
+                </td>
+                <td class="auto-styleCell">
+                    <h5 class="auto-style4">
+                        <asp:LinkButton ID="lbtnLogout" runat="server" PostBackUrl="../Default.aspx" CausesValidation="False" CssClass="auto-styleCell">Logout</asp:LinkButton>
+                    </h5>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-styleCell" colspan="6">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-styleCell" colspan="6">
+                    <asp:Label ID="lblMessage" runat="server" Style="text-align: left; color: #FF0000; font-size: 9pt;"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-styleCell" colspan="6">&nbsp;</td>
+            </tr>
+        </table>
+        <div style="text-align: center">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
