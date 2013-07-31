@@ -30,7 +30,7 @@ public class QuestionDAL
 		// TODO: Add constructor logic here
 		//
 	}
-    public string InsertQuestion(QuestionBO oQuestionBO)
+    public string InsertQuestion(QuestionBO oQuestionBO, DefaultAnswerBO oDefaultAnswerBO)
     {
         try
         {
@@ -41,6 +41,8 @@ public class QuestionDAL
                 con.Open();
             }
             cmd.Parameters.AddWithValue("@question", oQuestionBO.question);
+            cmd.Parameters.AddWithValue("@QTypeID", oQuestionBO.QTypeID);
+            cmd.Parameters.AddWithValue("@answer", oDefaultAnswerBO.answer);
             cmd.Parameters.AddWithValue("@QRID", oQuestionBO.QRID);
             cmd.Parameters.AddWithValue("@status", oQuestionBO.status);            
             SqlParameter message = cmd.Parameters.Add("@message", SqlDbType.VarChar, 500);
@@ -107,10 +109,16 @@ public class QuestionDAL
     {
         try
         {
-            query = @"SELECT * FROM Question 
+            query = @"SELECT *, ISNULL(Stuff((SELECT ',' + answer 
+                        FROM DefaultAnswer DA
+                        LEFT JOIN Question Q
+                        ON DA.questionID = Q.questionID
+                        WHERE Question.questionID = DA.questionID 
+                        FOR XML PATH('')),1,1,''), '') defaultAnswers
+		                FROM Question
                         INNER JOIN QuestionRepitation
-                        ON Question.QRID = QuestionRepitation.QRID
-                        ORDER BY question DESC";
+                        ON Question.QRID = QuestionRepitation.QRID												
+                        ORDER BY questionID DESC";
             dad = new SqlDataAdapter(query, con);
             if (con.State == ConnectionState.Closed)
             {
@@ -133,11 +141,17 @@ public class QuestionDAL
     {
         try
         {
-            query = @"SELECT * FROM Question 
+            query = @"SELECT *, ISNULL(Stuff((SELECT ',' + answer 
+                        FROM DefaultAnswer DA
+                        LEFT JOIN Question Q
+                        ON DA.questionID = Q.questionID
+                        WHERE Question.questionID = DA.questionID 
+                        FOR XML PATH('')),1,1,''), '') defaultAnswers
+		                FROM Question
                         INNER JOIN QuestionRepitation
                         ON Question.QRID = QuestionRepitation.QRID
                         WHERE question LIKE '%' + @question +'%'
-                        ORDER BY question DESC";
+                        ORDER BY questionID DESC";
             dad = new SqlDataAdapter(query, con);
             if (con.State == ConnectionState.Closed)
             {

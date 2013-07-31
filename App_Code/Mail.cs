@@ -56,7 +56,7 @@ public class Mail
         {
             MailMessage message = new MailMessage();
             SmtpClient smtp = new SmtpClient();
-            message.From = new MailAddress("raja.rupinder@venturepact.com", "FBL");
+            message.From = new MailAddress("yourfriends@venturepact.com", "FBL");
             message.To.Add(new MailAddress(email));
             message.IsBodyHtml = true;
             message.Subject = "FBL Updates";

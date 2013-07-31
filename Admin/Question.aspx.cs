@@ -9,9 +9,11 @@ using System.Data.SqlClient;
 
 public partial class Admin_Question : System.Web.UI.Page
 {
+    QuestionTypeBAL oQuestionTypeBAL = new QuestionTypeBAL();
     QRBAL oQRBAL = new QRBAL();
     QuestionBO oQuestionBO = new QuestionBO();
     QuestionBAL oQuestionBAL = new QuestionBAL();
+    DefaultAnswerBO oDefaultAnswerBO = new DefaultAnswerBO();
     DataTable dt;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -26,6 +28,7 @@ public partial class Admin_Question : System.Web.UI.Page
             {
                 if (Page.IsPostBack == false)
                 {
+                    BindQuestionType();
                     BindQR();                
                     BindGrid();                
                 }
@@ -36,6 +39,15 @@ public partial class Admin_Question : System.Web.UI.Page
         {
             ((Label)(Master.FindControl("lblMessage"))).Text = ex.Message.ToString();
         }
+    }
+    public void BindQuestionType()
+    {
+        DataTable dt = new DataTable();
+        dt = oQuestionTypeBAL.SelectQuestionType();
+        drpQuestionType.DataSource = dt;
+        drpQuestionType.DataTextField = "type";
+        drpQuestionType.DataValueField = "QTypeID";
+        drpQuestionType.DataBind();
     }
     public void BindQR()
     {
@@ -67,33 +79,49 @@ public partial class Admin_Question : System.Web.UI.Page
     }
     public void Clear()
     {
-        foreach (Control controls in Form.Controls)
-        {
-            if (controls is TextBox)
-            {
-                TextBox txt = (TextBox)controls;
-                txt.Text = "";
-            }
-            if (controls is DropDownList)
-            {
-                DropDownList drop = (DropDownList)controls;
-                drop.ClearSelection();
-            }
-            if (controls is RadioButtonList)
-            {
-                RadioButtonList rbtnl = (RadioButtonList)controls;
-                rbtnl.ClearSelection();
-            }
-        }
+        drpQuestionType.SelectedIndex = 0;
+        txtQuestion.Text = string.Empty;
+        drpQR.SelectedIndex = 0;
+        txtMultipleAnswer.Text = string.Empty;
+        txtOnlyOneAnswer.Text = string.Empty;
+        txtRanking.Text = string.Empty;
+        txtRating.Text = string.Empty; 
     }    
     protected void btnSave_Click(object sender, EventArgs e)
     {
         try
         {
             oQuestionBO.question = txtQuestion.Text;
-            oQuestionBO.QRID = int.Parse(drpQR.SelectedValue);
+
+            if (drpQuestionType.SelectedValue == "1")
+            {
+                oQuestionBO.QTypeID = 1;
+                oDefaultAnswerBO.answer = string.Empty; 
+            }
+            else if (drpQuestionType.SelectedValue == "2")
+            {                
+                oQuestionBO.QTypeID = 2;
+                oDefaultAnswerBO.answer = txtMultipleAnswer.Text.Replace('\n', ',');
+            }
+            else if (drpQuestionType.SelectedValue == "3")
+            {
+                oQuestionBO.QTypeID = 3;
+                oDefaultAnswerBO.answer = txtOnlyOneAnswer.Text.Replace('\n', ',');
+            }
+            else if (drpQuestionType.SelectedValue == "4")
+            {
+                oQuestionBO.QTypeID = 4;
+                oDefaultAnswerBO.answer = txtRanking.Text;
+            }
+            else if (drpQuestionType.SelectedValue == "5")
+            {
+                oQuestionBO.QTypeID = 5;
+                oDefaultAnswerBO.answer = txtRating.Text; 
+            }
+            
+            oQuestionBO.QRID = int.Parse(drpQR.SelectedValue);oQuestionBO.QRID = int.Parse(drpQR.SelectedValue);
             oQuestionBO.status = bool.Parse(rbtnlStatus.SelectedItem.Text);
-            ((Label)(Master.FindControl("lblMessage"))).Text = oQuestionBAL.InsertQuestion(oQuestionBO);
+            ((Label)(Master.FindControl("lblMessage"))).Text = oQuestionBAL.InsertQuestion(oQuestionBO, oDefaultAnswerBO);
             BindGrid();
             Clear();
         }
@@ -197,6 +225,61 @@ public partial class Admin_Question : System.Web.UI.Page
                         rbtnl.Items[1].Selected = true;
                     }
                 }
+            }
+        }
+        catch (Exception ex)
+        {
+            ((Label)(Master.FindControl("lblMessage"))).Text = ex.Message.ToString();
+        }
+    }
+    protected void drpQuestionType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            if (drpQuestionType.SelectedValue == "1")
+            {
+                Panel1.Visible = true;
+                Panel2.Visible = false;
+                Panel3.Visible = false;
+                Panel4.Visible = false;
+                Panel5.Visible = false;
+                lblMC.Visible = false; 
+            }
+            else if (drpQuestionType.SelectedValue == "2")
+            {
+                Panel1.Visible = false;
+                Panel2.Visible = true;
+                Panel3.Visible = false;
+                Panel4.Visible = false;
+                Panel5.Visible = false;
+                lblMC.Visible = true;
+            }
+            else if (drpQuestionType.SelectedValue == "3")
+            {
+                Panel1.Visible = false;
+                Panel2.Visible = false;
+                Panel3.Visible = true;
+                Panel4.Visible = false;
+                Panel5.Visible = false;
+                lblMC.Visible = true;
+            }
+            else if (drpQuestionType.SelectedValue == "4")
+            {
+                Panel1.Visible = false;
+                Panel2.Visible = false;
+                Panel3.Visible = false;
+                Panel4.Visible = true;
+                Panel5.Visible = false;
+                lblMC.Visible = true;
+            }
+            else if (drpQuestionType.SelectedValue == "5")
+            {
+                Panel1.Visible = false;
+                Panel2.Visible = false;
+                Panel3.Visible = false;
+                Panel4.Visible = false;
+                Panel5.Visible = true;
+                lblMC.Visible = true;
             }
         }
         catch (Exception ex)

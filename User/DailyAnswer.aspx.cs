@@ -25,9 +25,13 @@ public partial class Admin_DailyAnswer : System.Web.UI.Page
             else
             {
                 Calendar1.SelectionChanged += new EventHandler(this.Selection_Change);
+
                 if (Page.IsPostBack == false)
                 {
-
+                    DataTable dt = new DataTable();
+                    dt = oUserDetailBAL.SelectUserDetail();
+                    dgrdEmployee.DataSource = dt;
+                    dgrdEmployee.DataBind();
                 }
             }
         }

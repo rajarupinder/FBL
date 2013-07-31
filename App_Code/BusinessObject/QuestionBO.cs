@@ -30,6 +30,11 @@ public class QuestionBO
         get;
         set;
     }
+    public int QTypeID
+    {
+        get;
+        set;
+    }
     public int QRID
     {
         get;

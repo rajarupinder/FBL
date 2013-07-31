@@ -4,7 +4,132 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <link href="../Admin/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen" />
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.fancybox.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.fancybox').fancybox();
+
+            $(".username").focus(function () {
+                $(".user-icon").css("left", "-48px");
+            });
+            $(".username").blur(function () {
+                $(".user-icon").css("left", "0px");
+            });
+
+            $(".password").focus(function () {
+                $(".pass-icon").css("left", "-48px");
+            });
+            $(".password").blur(function () {
+                $(".pass-icon").css("left", "0px");
+            });
+
+
+        });
+    </script>
+    <link rel="stylesheet" href="reveal.css">
+
+    <!-- Attach necessary scripts -->
+    <!-- <script type="text/javascript" src="jquery-1.4.4.min.js"></script> -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="jquery.reveal.js"></script>
+
+    <style type="text/css">
+        body {
+            font-family: "HelveticaNeue","Helvetica-Neue", "Helvetica", "Arial", sans-serif;
+        }
+
+        .big-link {
+            display: block;
+            margin-top: 100px;
+            text-align: center;
+            font-size: 70px;
+            color: #06f;
+        }
+    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="jQuery%20Collapsible%20Demo_files/github.css" type="text/css" />
+    <link rel="stylesheet" href="jQuery%20Collapsible%20Demo_files/demo.css" type="text/css" />
+    <!-- /CSS -->
+    <!-- JS -->
+    <script type="text/javascript" src="jQuery%20Collapsible%20Demo_files/jquery_003.js"></script>
+    <script type="text/javascript" src="jQuery%20Collapsible%20Demo_files/highlight.js"></script>
+    <script type="text/javascript" src="jQuery%20Collapsible%20Demo_files/jquery.js"></script>
+    <script type="text/javascript" src="jQuery%20Collapsible%20Demo_files/jquery_002.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //syntax highlighter
+            hljs.tabReplace = '    ';
+            hljs.initHighlightingOnLoad();
+
+            $.fn.slideFadeToggle = function (speed, easing, callback) {
+                return this.animate({ opacity: 'toggle', height: 'toggle' }, speed, easing, callback);
+            };
+
+            //collapsible management
+            $('.collapsible').collapsible({
+                defaultOpen: 'section1',
+                cookieName: 'nav',
+                speed: 'slow',
+                animateOpen: function (elem, opts) { //replace the standard slideUp with custom function
+                    elem.next().slideFadeToggle(opts.speed);
+                },
+                animateClose: function (elem, opts) { //replace the standard slideDown with custom function
+                    elem.next().slideFadeToggle(opts.speed);
+                },
+                loadOpen: function (elem) { //replace the standard open state with custom function
+                    elem.next().show();
+                },
+                loadClose: function (elem, opts) { //replace the close state with custom function
+                    elem.next().hide();
+                }
+            });
+            $('.page_collapsible').collapsible({
+                defaultOpen: 'body_section1',
+                cookieName: 'body2',
+                speed: 'slow',
+                animateOpen: function (elem, opts) { //replace the standard slideUp with custom function
+                    elem.next().slideFadeToggle(opts.speed);
+                },
+                animateClose: function (elem, opts) { //replace the standard slideDown with custom function
+                    elem.next().slideFadeToggle(opts.speed);
+                },
+                loadOpen: function (elem) { //replace the standard open state with custom function
+                    elem.next().show();
+                },
+                loadClose: function (elem, opts) { //replace the close state with custom function
+                    elem.next().hide();
+                }
+
+            });
+
+            //assign open/close all to functions
+            function openAll() {
+                $('.page_collapsible').collapsible('openAll');
+            }
+            function closeAll() {
+                $('.page_collapsible').collapsible('closeAll');
+            }
+
+            //listen for close/open all
+            $('#closeAll').click(function (event) {
+                event.preventDefault();
+                closeAll();
+
+            });
+            $('#openAll').click(function (event) {
+                event.preventDefault();
+                openAll();
+            });
+
+        });
+    </script>
+    <!-- /JS -->
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
@@ -16,49 +141,50 @@
 
         .auto-styleCell {
         }
-        .auto-style1 {
-            font-size: 9pt;
-        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server" align="centre">
-        <table class="auto-styleTable" style="text-align: center">
-            <tr class="auto-style1">
-                <td class="auto-styleCell">
-                    <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="Default.aspx" CausesValidation="False">Home</asp:LinkButton>
-                </td>
-                <td class="auto-styleCell">
-                    <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="Feedback.aspx" CausesValidation="False">Feedback</asp:LinkButton>
-                </td>
-                <td class="auto-styleCell">
-                    <asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="User.aspx" CausesValidation="False">List of Users</asp:LinkButton>
-                </td>
-                <td class="auto-styleCell">
-                    <asp:LinkButton ID="LinkButton4" runat="server" PostBackUrl="DailyAnswer.aspx" CausesValidation="False">Daily Answers</asp:LinkButton>
-                </td>
-                <td class="auto-styleCell">
-                    <asp:LinkButton ID="lbtnLogout" runat="server" PostBackUrl="../Default.aspx" CausesValidation="False">Logout</asp:LinkButton>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-styleCell" colspan="5">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-styleCell" colspan="5">
-                    <asp:Label ID="lblMessage" runat="server" Style="text-align: left; color: #FF0000; font-size: 9pt;"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-styleCell" colspan="5">
-                    &nbsp;</td>
-            </tr>
-        </table>
-        <div style="text-align: center">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+        <div id="main">
+            <div id="header_main">
+                <div id="header_container">
+                    <div id="header">
+                        <div class="admin_logo">
+                            <a href="index.html">
+                                <img src="imgs/admin_logo.png" /></a>
+                        </div>
+                        <div class="navigation">
+                            <ul>
+                                <li><a href="Default.aspx">HOME</a></li>
+                                <li><a href="Feedback.aspx">GIVE FEEDBACK</a></li>
+                                <li><a href="User.aspx">STAFF</a></li>
+                                <li><a href="DailyAnswer.aspx">VIEW FEEDBACK</a></li>
+                            </ul>
+                            <a class="logout" href="../Default.aspx">LOGOUT</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div align="center">
+                <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
+                </asp:ScriptManager>
+            </div>
+            <div align="center">
+                <asp:Label ID="lblMessage" runat="server" Style="font-family: Arial; color: #FF0000; font-size: small; font-weight: 700; font-style: italic;"></asp:Label>
+            </div>
+            <div id="table_content">
+                <div class="question_main">
+                    <div class="question_cont">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     </form>
 </body>
 </html>

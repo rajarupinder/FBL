@@ -4,114 +4,65 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>FBL-Login</title>
-    <style type="text/css">
-        .auto-style1 {
-            text-align: center;
-            font-size: medium;
-        }
+    <title>FBL</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".username").focus(function () {
+                $(".user-icon").css("left", "-48px");
+            });
+            $(".username").blur(function () {
+                $(".user-icon").css("left", "0px");
+            });
 
-        .custmer-15 {
-            text-align: right;
-        }
+            $(".password").focus(function () {
+                $(".pass-icon").css("left", "-48px");
+            });
+            $(".password").blur(function () {
+                $(".pass-icon").css("left", "0px");
+            });
+        });
+    </script>
 
-        .style6 {
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div style="font-family: Arial; font-size: small;">
-            <table width="100%" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td>
-                        <table width="990" align="center" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td width="990" height="68" valign="top" background="images/header.jpg">&nbsp;
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table width="990" align="center" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td valign="top">
-                                    <table width="318" align="center" cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td style="text-align: center">
-                                                <asp:ScriptManager ID="ScriptManager1" runat="server">
-                                                </asp:ScriptManager>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="318" height="40" background="images/login-top.jpg" class="auto-style1"><strong>Login</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="318" background="images/login-top.jpg" style="text-align: center">
-                                                <asp:Label ID="lblMessage" runat="server" Style="text-align: left; color: #FF0000; font-size: 9pt;"></asp:Label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="top" background="images/login-center.jpg">
-                                                <table align="center" cellpadding="0" cellspacing="0" style="width: 136px">
-                                                    <tr>
-                                                        <td class="custmer-15">&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="text-align: left"><span class="custmer-15"><strong>Username</strong></span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="219" class="style6">
-                                                            <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ID="valrUserName" runat="server" Display="None" ErrorMessage="Please enter username"
-                                                                ControlToValidate="txtUserName" SetFocusOnError="True" Style="color: #FF0000">*</asp:RequiredFieldValidator>
-
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="text-align: left"><span class="custmer-15"><strong>Password</strong></span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="style6">
-                                                            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ID="valrPassword" runat="server" Display="None"
-                                                                ErrorMessage="Please enter password" ControlToValidate="txtPassword" SetFocusOnError="True" Style="color: #FF0000">*</asp:RequiredFieldValidator>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="text-align: center">
-                                                            <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" style="font-weight: 700" />
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="top">&nbsp;</td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="91">&nbsp;
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+    <div id="main">
+        <div id="container">
+            <div id="innercontainer">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="imgs/logo.png" /></a>
+                </div>
+                <div id="wrapper">
+                    <div class="user-icon"></div>
+                    <div class="pass-icon"></div>
+                    <form id="form1" runat="server" name="login-form" class="login-form">
+                        <div style="text-align: center">
+                            <asp:ScriptManager ID="ScriptManager1" runat="server">
+                            </asp:ScriptManager>
+                            <h1>
+                                <asp:Label ID="lblMessage" runat="server" Style="font-family: Arial; color: #FFFFFF; font-size: 8pt; font-weight: 700; background-color: #000000;"></asp:Label>
+                            </h1>
+                        </div>
+                        <div class="content">
+                            <label>Username</label>
+                            <asp:TextBox ID="txtUsername" runat="server" CssClass="input username"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="valrUserName" runat="server" Display="None" ErrorMessage="Please enter username"
+                                ControlToValidate="txtUserName" SetFocusOnError="True" Style="color: #FF0000">*</asp:RequiredFieldValidator>
+                            <label class="password_label">Password</label>
+                            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="input password"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="valrPassword" runat="server" Display="None"
+                                ErrorMessage="Please enter password" ControlToValidate="txtPassword" SetFocusOnError="True" Style="color: #FF0000">*</asp:RequiredFieldValidator>
+                        </div>
+                        <div class="footer">
+                            <asp:Button ID="btnLogin" runat="server" CssClass="button" OnClick="btnLogin_Click" Text="Login" Style="font-weight: 700" />
+                        </div>
+                    </form>
+                </div>
+                <div class="gradient"></div>
+            </div>
         </div>
-    </form>
+    </div>
 </body>
 </html>

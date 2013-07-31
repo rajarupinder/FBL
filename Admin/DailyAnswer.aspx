@@ -10,10 +10,7 @@
 
         .auto-style2 {
             width: 100%;
-        }
-
-        .auto-style3 {
-            text-align: right;
+            text-align: center;
         }
 
         .auto-style4 {
@@ -28,34 +25,24 @@
         .auto-style6 {
             font-size: x-small;
         }
-
-        .auto-style7 {
-            text-align: left;
-            font-size: 9pt;
-        }
-
-        .auto-style8 {
-            text-align: left;
-            font-weight: bold;
-            font-size: 9pt;
-        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table class="auto-styleTable" style="text-align: center">
-
-        <tr>
+        <tr align="center">
             <td>
                 <table class="auto-style2">
-                    <tr>
-                        <td class="auto-style3" style="vertical-align: top">
-                            <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
-                                <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                                <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
-                                <OtherMonthDayStyle ForeColor="#999999" />
-                                <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                                <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                                <TodayDayStyle BackColor="#CCCCCC" />
+                    <tr align="center">
+                        <td style="vertical-align: top; text-align: center;">
+                            <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#999999" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" CellPadding="4" DayNameFormat="Shortest">
+                                <DayHeaderStyle Font-Bold="True" Font-Size="7pt" BackColor="#CCCCCC" />
+                                <NextPrevStyle VerticalAlign="Bottom" />
+                                <OtherMonthDayStyle ForeColor="#808080" />
+                                <SelectedDayStyle BackColor="#666666" ForeColor="White" Font-Bold="True" />
+                                <SelectorStyle BackColor="#CCCCCC" />
+                                <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+                                <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                                <WeekendDayStyle BackColor="#FFFFCC" />
                             </asp:Calendar>
 
                         </td>
@@ -87,43 +74,48 @@
                                     </span><span class="auto-style6"><span>
                                         <tr>
                                             <td class="auto-style5"><em>Name</em></td>
+                                            <td class="auto-style4"><em>
+                                                <asp:Label ID="lblName" runat="server" Text='<%# Eval("name") %>'></asp:Label>
+                                            </em></td>
+                                            <td>&nbsp;</td>
                                         </tr>
                                     </span></span>
-                                    <td class="auto-style4"><em>
-                                        <asp:Label ID="lblName" runat="server" Text='<%# Eval("name") %>'></asp:Label>
-                                    </em></td>
-                                    <td>&nbsp;</td>
                                     <tr>
+                                        <td class="auto-style5">&nbsp;</td>
+                                        <td class="auto-style4">&nbsp;</td>
+                                        <td>&nbsp;</td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                         <td>
-                                            <asp:GridView runat="server" AutoGenerateColumns="False"
-                                                ID="dgrdDailyAnswer"
-                                                CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" ShowHeader="False">
+                                            <asp:GridView ID="dgrdDailyAnswer" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeader="False" Width="100%">
                                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="">
                                                         <ItemTemplate>
-                                                            Question:&nbsp; 
-                                                            <asp:Label ID="lblQuestion" runat="server" Text='<%# Eval("question") %>'></asp:Label>
-                                                            <br />
-                                                            Answer:&nbsp;
-                                                            <asp:Label ID="lblAnswer" runat="server" Text='<%# Eval("answer") %>'></asp:Label>
+                                                            <div class="auto-style4">
+                                                                <b><strong><em>Question:<asp:Label ID="lblQuestion" runat="server" Text='<%# Eval("question") %>'></asp:Label>
+                                                                </em></strong></b><em>
+                                                                    <br />
+                                                                    Answer:&nbsp;
+                                                                <asp:Label ID="lblAnswer" runat="server" Text='<%# Eval("answer") %>'></asp:Label>
+                                                                </em>
+                                                            </div>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-
                                                 </Columns>
                                                 <EditRowStyle BackColor="#999999" />
-                                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
-                                                <FooterStyle VerticalAlign="Top" HorizontalAlign="Left" />
-                                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" VerticalAlign="Top" HorizontalAlign="Left" />
-                                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />                                              
+                                                <FooterStyle BackColor="#2A8EBC" Font-Bold="True" ForeColor="White" />
+                                                <HeaderStyle BackColor="#2A8EBC" Font-Bold="True" ForeColor="#FFFFFF" HorizontalAlign="Left" />
+                                                <FooterStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                                                <PagerStyle BackColor="#2A8EBC" ForeColor="White" HorizontalAlign="Center" />
+                                                <RowStyle BackColor="#DDDDDD" ForeColor="#444444" HorizontalAlign="Left" VerticalAlign="Top" />
+                                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
                                             </asp:GridView>
                                         </td>
+                                    </tr>
+                                    <tr>
                                     </tr>
                                 </table>
                             </ItemTemplate>
@@ -131,11 +123,12 @@
 
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
-                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle HorizontalAlign="Left" BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle VerticalAlign="Top" HorizontalAlign="Left" BackColor="#F7F6F3" ForeColor="#333333" />
-                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />                   
+                    <FooterStyle BackColor="#2A8EBC" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#2A8EBC" Font-Bold="True" ForeColor="#FFFFFF" HorizontalAlign="Left" />
+                    <FooterStyle VerticalAlign="Top" HorizontalAlign="Left" />
+                    <PagerStyle BackColor="#2A8EBC" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#DDDDDD" ForeColor="#444444" VerticalAlign="Top" HorizontalAlign="Left" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
                 </asp:GridView>
             </td>
         </tr>

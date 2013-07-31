@@ -57,24 +57,14 @@ public partial class Admin_UserDetail : System.Web.UI.Page
     }
     public void Clear()
     {
-        foreach (Control controls in Form.Controls)
-        {
-            if (controls is TextBox)
-            {
-                TextBox txt = (TextBox)controls;
-                txt.Text = "";
-            }
-            if (controls is DropDownList)
-            {
-                DropDownList drop = (DropDownList)controls;
-                drop.ClearSelection();
-            }
-            if (controls is RadioButtonList)
-            {
-                RadioButtonList rbtnl = (RadioButtonList)controls;
-                rbtnl.ClearSelection();
-            }
-        }
+        txtEmployeeID.Text = string.Empty;
+        txtName.Text = string.Empty;
+        txtDesignation.Text = string.Empty;
+        txtEmail.Text = string.Empty;
+        txtMobile.Text = string.Empty;
+        txtUsername.Text = string.Empty;
+        txtPassword.Text = string.Empty;
+        txtConfirmPassword.Text = string.Empty; 
     }    
     protected void btnSave_Click(object sender, EventArgs e)
     {

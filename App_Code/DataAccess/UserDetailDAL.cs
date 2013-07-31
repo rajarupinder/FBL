@@ -148,7 +148,7 @@ public class UserDetailDAL
         try
         {
             query = @"SELECT * FROM UserDetail
-                        ORDER BY name DESC";
+                        ORDER BY name";
             dad = new SqlDataAdapter(query, con);
             if (con.State == ConnectionState.Closed)
             {
@@ -173,7 +173,7 @@ public class UserDetailDAL
         {
             query = @"SELECT * FROM UserDetail
                         WHERE status = 1
-                        ORDER BY name DESC";
+                        ORDER BY ID DESC";
             dad = new SqlDataAdapter(query, con);
             if (con.State == ConnectionState.Closed)
             {

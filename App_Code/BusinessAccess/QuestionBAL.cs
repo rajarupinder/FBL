@@ -24,11 +24,11 @@ public class QuestionBAL
         // TODO: Add constructor logic here
         //
     }
-    public string InsertQuestion(QuestionBO oQuestionBO)
+    public string InsertQuestion(QuestionBO oQuestionBO, DefaultAnswerBO oDefaultAnswerBO)
     {
         try
         {
-            return oQuestionDAL.InsertQuestion(oQuestionBO);
+            return oQuestionDAL.InsertQuestion(oQuestionBO, oDefaultAnswerBO);
         }
         catch
         {

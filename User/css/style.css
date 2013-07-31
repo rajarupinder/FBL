@@ -1,0 +1,664 @@
+::selection {
+	color: #fff;
+	background: #f676b2; /* Safari */
+}
+::-moz-selection {
+	color: #fff;
+	background: #f676b2; /* Firefox */
+}
+* 
+{
+	margin: 0;
+	padding: 0;
+}
+a,img
+{
+	text-decoration:none;
+	outline:none;
+	border:none;
+}
+textarea,input,select
+{
+	outline:none;
+}
+ul,li
+{
+	list-style:none;
+}
+body {
+	background: url(../imgs/bg.png) repeat;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:300;
+	text-align: left;
+	text-decoration: none;
+    font-size:13px; 
+
+
+
+
+
+
+
+}
+#main
+{
+	float:left;
+	width:100%;
+}
+#container
+{
+	margin:0 auto;
+	width:990px;
+}
+#innercontainer
+{
+	float:left;
+	width:100%;
+	position:relative;
+	
+}
+.logo
+{
+	float:left;
+	width:100%;
+	margin-top:10px;
+	margin-bottom:15px;
+	text-align:center;
+}
+.logo a
+{
+	float:none;
+	width:auto;
+}
+
+#wrapper 
+{
+	float: left;
+    height: 400px;
+    left: 34.8%;
+    position: relative;
+    width: 300px;
+}
+.gradient 
+{
+
+	background-image: url("../imgs/gradient.png");
+    background-repeat: no-repeat;
+    height: 550px;
+    left: 19%;
+    position: absolute;
+    top: 0;
+    width: 600px;
+}
+
+/*LOGIN FORM start 22july {SAhil} */
+
+.login-form {
+	width: 300px;
+	margin: 0 auto;
+	position: relative;
+	z-index:5;
+	
+	background: #3BA2D2;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/*******************
+HEADER
+*******************/
+
+.login-form .header {
+	padding: 20px 30px 10px;
+}
+
+.login-form .header h1 {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 28px;
+	line-height:34px;
+	color: #fff;
+	margin-bottom: 10px;
+}
+
+.login-form .header span {
+	font-size: 11px;
+	line-height: 16px;
+	color:#086590;
+}
+/*******************
+CONTENT
+*******************/
+
+.login-form .content {
+	padding: 20px 30px 25px 30px;
+}
+
+/* Input field */
+.login-form .content label
+{
+	color: #FFFFFF;
+    float: left;
+    font-size: 16px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+.login-form .content .input {
+	width: 188px;
+	padding: 15px 25px;
+	
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #9d9e9e;
+	
+	background: #fff;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+}
+
+/* Second input field */
+.password_label
+{
+	margin-top: 25px;
+}
+.login-form .content .input:hover {
+	background: none repeat scroll 0 0 #5DBAE5;
+    color: #FFFFFF;
+}
+
+.login-form .content .input:focus {
+	background: none repeat scroll 0 0 #5DBAE5;
+    color: #FFFFFF;
+}
+
+.user-icon, .pass-icon {
+	width: 46px;
+	height: 47px;
+	display: block;
+	position: absolute;
+	left: 0px;
+	padding-right: 2px;
+	z-index: 3;
+	
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+
+.user-icon {
+	top:47px; /* Positioning fix for slide-in, got lazy to think up of simpler method. */
+	background: rgba(65,72,72,0.75) url(../imgs/user-icon.png) no-repeat center;	
+}
+
+.pass-icon {
+	top:149px;
+	background: rgba(65,72,72,0.75) url(../imgs/pass-icon.png) no-repeat center;
+}
+
+/* Animation */
+.input, .user-icon, .pass-icon, .button, .register {
+	transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+}
+
+/*FOOTER start 22july {SAhil} */
+
+.login-form .footer {
+	padding: 25px 30px 40px 30px;
+	overflow: auto;
+	
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+/*FOOTER end 22july {SAhil} */
+/* Login button start 22july {SAhil} */
+.login-form .footer .button {
+	float:right;
+	padding: 11px 25px;
+	
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 26px;
+	width:100%;
+	color: #fff;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+	
+	background: #086590;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	
+	box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+
+.login-form .footer .button:hover {
+	background: #3BA2D2;
+	border: 1px solid rgba(255,255,255,0.75);
+}
+.login-form .footer .button:focus {
+	position: relative;
+	bottom: -1px;
+	background: #3BA2D2;
+	border: 1px solid rgba(255,255,255,0.75);
+	
+}
+/* Login button end 22july {SAhil} */
+/* Register button start 22july {SAhil} */
+.login-form .footer .register {
+	display: block;
+	float: right;
+	padding: 10px;
+	margin-right: 40px;
+	
+	background: none;
+	border: none;
+	cursor: pointer;
+	
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #086590;
+}
+
+.login-form .footer .register:hover {
+	color: #fff;
+}
+
+.login-form .footer .register:focus {
+	position: relative;
+	bottom: -1px;
+}
+/* Register button end 22july {SAhil} */
+/*LOGIN FORM end 22july {SAhil} */
+/*Admin page start 26july {SAhil} */
+#header_main
+{
+	float:left;
+	width:100%;
+	background:#2a8ebc;
+	min-height:55px;
+}
+#header_container
+{
+	margin:0 auto;
+	width:990px;
+}
+#header
+{
+	float:left;
+	width:100%;
+}
+.admin_logo
+{
+	float:left;
+	width:158px;
+	background:url(../imgs/bg.png) no-repeat;
+}
+.navigation
+{
+	float:left;
+	width:70%;
+	margin-top:25px;
+}
+.navigation ul
+{
+	float:left;
+	width:auto;
+}
+.navigation ul li
+{
+	float:left;
+	width:auto;
+	margin-right:10px;
+	margin-left:10px;
+}
+.navigation ul li a
+{
+	width:auto;
+	padding:10px;
+	font-size:12px;
+	color:#14536f;
+	font-weight:bold;
+}
+.navigation ul li a:hover
+{
+	text-decoration:underline;
+	color:#fff;
+	transition: all 0.8s ;
+	-moz-transition: all 0.8s;
+	-webkit-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+}
+.logout
+{
+	width:auto;
+	padding:4px 15px;
+	font-size:12px;
+	float:right;
+	color:#fff;
+	background:#14536f;
+	font-weight:bold;
+	-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+	
+}
+.logout:hover
+{
+	color:#14536f;
+	background:#eee;
+	transition: all 0.8s ;
+	-moz-transition: all 0.8s;
+	-webkit-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+}
+
+#mid_main
+{
+	float:left;
+	width:100%;
+}
+#mid_cont
+{
+	margin:0 auto;
+	width:590px;
+}
+#middle
+{
+	float:left;
+	width:100%;
+	background:#eee;
+	-webkit-box-shadow:  0px 0px 5px 2px #888;
+     box-shadow:  0px 0px 5px 2px #888;
+}
+.question_outr
+{
+	float:left;
+	width:97%;
+	padding:9px;
+	padding-top:25px;
+}
+.question_inner
+{
+	float:left;
+	width:100%;
+	margin-bottom:15px;
+}
+.question_inner label
+{
+	color: #777777;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 2px;
+	line-height:28px;
+    margin-right: 20px;
+    text-align: right;
+    width: 170px;
+}
+.question_inner textarea
+{
+	background: none repeat scroll 0 0 #DDDDDD;
+    border: 1px solid #FFFFFF;
+    float: left;
+    height: 70px;
+    margin-right: 10px;
+    padding: 10px;
+    resize: none;
+    width: 250px;
+}
+.question_inner select
+{
+	background: none repeat scroll 0 0 #DDDDDD;
+    border: 1px solid #FFFFFF;
+    float: left;
+    margin-right: 10px;
+    padding: 5px;
+    resize: none;
+    width: 250px;
+}
+
+.page_review
+{
+	float:left;
+	width:290px;
+}
+.page_review label
+{
+	color: #777777;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    margin-right: 10px;
+    text-align: right;
+    width: auto;
+}
+.page_review select
+{
+	background: none repeat scroll 0 0 #DDDDDD;
+    border: 1px solid #FFFFFF;
+    float: left;
+    margin-right: 10px;
+    padding: 5px;
+    resize: none;
+    width: 250px;
+}
+.active_outr
+{
+	float:left;
+	width:70px;
+	margin-top:7px;
+}
+.active_outr input
+{
+	float:left;
+	width:auto;
+}
+.active_outr p
+{
+	color: #777777;
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    text-align: right;
+    width: auto;
+}
+.save_butn_outr
+{
+	float:left;
+	width:100%;
+	text-align:center;
+	margin-top:15px;
+}
+.save_butn
+{
+	float:none;
+	margin-right:10px;
+	padding: 6px 25px;
+	
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	width:22%;
+	color: #fff;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+	
+	background: #086590;
+	border: 1px solid #fff;
+	-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+	cursor: pointer;
+}
+.save_butn:hover {
+	background: #3BA2D2;
+	border: 1px solid rgba(255,255,255,0.75);
+}
+.save_butn:active {
+	position: relative;
+	bottom: -1px;
+	background: #3BA2D2;
+	border: 1px solid rgba(255,255,255,0.75);
+	
+}
+#table_content
+{
+	float: left;
+    margin-top: 25px;
+    padding-left: 6px;
+    width: 99%;
+}
+.search_bar
+{
+	float:left;
+	width:50%;
+	padding-left:10px;
+}
+.search_bar label
+{
+	color: #222;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    margin-right: 10px;
+    text-align: right;
+    width: auto;
+	line-height:26px;
+}
+.search_bar input[type="text"]
+{
+	background: none repeat scroll 0 0 #DDDDDD;
+    border: 1px solid #999999;
+    float: left;
+    margin-right: 10px;
+    padding: 5px;
+    resize: none;
+    width: 250px;
+}
+.blue_butn
+{
+	background:#3BA2D2;
+	color:#fff;
+	font-size:12px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	border:1px solid #086590;
+    float: left;
+    padding:5px 15px;
+	-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+cursor:pointer;
+}
+.search_bar input[type="submit"]:active
+{
+	position:relative;
+	top:1px;
+}
+.add_ques
+{
+	float:right;
+	width:auto;
+	margin-right:30px;
+}
+.black_butn
+{
+	background:#666;
+	color:#fff;
+	font-size:12px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	border:1px solid #111;
+    float: left;
+    padding:5px 15px;
+	-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+cursor:pointer;
+}
+.black_butn:active
+{
+	position:relative;
+	top:1px;
+}
+.table_outr
+{
+	float:left;
+	width:97%;
+	margin-left:10px;
+	min-height:150px;
+	overflow-y:scroll;
+	margin-top:15px;
+	border:1px solid #111;
+}
+.tabel_detail
+{
+	float:left;
+	width:100%;
+}
+.tabel_detail tbody tr
+{
+	margin-bottom:2px;
+}
+
+.tabel_detail tbody tr th
+{
+	background: none repeat scroll 0 0 #2A8EBC;
+    border: 0 none;
+    color: #FFFFFF;
+    padding: 4px;
+	font-size:12px;
+}
+.tabel_detail tbody tr td
+{
+	background: none repeat scroll 0 0 #ddd;
+    border: 0 none;
+    color: #444;
+    padding: 4px;
+	font-size:12px;
+}
+.tabel_detail tbody tr td a
+{
+	float:left;
+	margin-right:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Admin page end 26july {SAhil} */
