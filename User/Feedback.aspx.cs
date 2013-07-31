@@ -28,7 +28,7 @@ public partial class Admin_Feedback : System.Web.UI.Page
                 if (Page.IsPostBack == false)
                 {
                     BindQuestion();
-                    BindGrid();            
+                    BindGrid(); ; ;      
                 }
             }
         }
