@@ -1,4 +1,4 @@
-﻿<%@ page title="FBL-USER" language="C#" masterpagefile="MasterPage.master" autoeventwireup="true" inherits="Admin_UserDetail, App_Web_b1k606xq" %>
+﻿<%@ Page Title="FBL-USER" Language="C#" MasterPageFile="MasterPage.master" AutoEventWireup="true" CodeFile="User.aspx.cs" Inherits="Admin_UserDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">

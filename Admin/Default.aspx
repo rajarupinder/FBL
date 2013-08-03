@@ -1,4 +1,4 @@
-﻿<%@ page title="FBL-HOME" language="C#" masterpagefile="MasterPage.master" autoeventwireup="true" inherits="Admin_Default, App_Web_470w5edq" %>
+﻿<%@ Page Title="FBL-HOME" Language="C#" MasterPageFile="MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Admin_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>

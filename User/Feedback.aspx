@@ -1,4 +1,4 @@
-﻿<%@ page title="FBL-FEEDBACK" language="C#" masterpagefile="MasterPage.master" autoeventwireup="true" inherits="Admin_Feedback, App_Web_b1k606xq" %>
+﻿<%@ Page Title="FBL-FEEDBACK" Language="C#" MasterPageFile="MasterPage.master" AutoEventWireup="true" CodeFile="Feedback.aspx.cs" Inherits="Admin_Feedback" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
