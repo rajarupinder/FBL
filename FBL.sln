@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FBL", "..\..\WebSites\FBL\", "{8AE8F8DD-E13F-467A-AE02-A814F8CE0425}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		Debug.AspNetCompiler.VirtualPath = "/FBL"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\WebSites\FBL\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\FBL\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/FBL"
+		Release.AspNetCompiler.PhysicalPath = "..\..\WebSites\FBL\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\FBL\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51522"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{12FE2883-E7CE-4941-83FA-731E8E29D6DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AE8F8DD-E13F-467A-AE02-A814F8CE0425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE8F8DD-E13F-467A-AE02-A814F8CE0425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE8F8DD-E13F-467A-AE02-A814F8CE0425}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE8F8DD-E13F-467A-AE02-A814F8CE0425}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{12FE2883-E7CE-4941-83FA-731E8E29D6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12FE2883-E7CE-4941-83FA-731E8E29D6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12FE2883-E7CE-4941-83FA-731E8E29D6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12FE2883-E7CE-4941-83FA-731E8E29D6DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
